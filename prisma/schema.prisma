@@ -1,0 +1,49 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Lesson {
+  id          String   @id @default(cuid())
+  subject     String
+  topic       String
+  level       String
+  duration    String
+  content     String
+
+  curriculum  String?
+
+  contentType String? @default("lesson")
+
+  userType    String?
+
+  createdAt   DateTime @default(now())
+
+  userId      String
+  user        User @relation(fields: [userId], references: [id])
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      String
+  state     String
+
+  resetToken        String?
+  resetTokenExpiry  DateTime?
+
+  onboardingCompleted Boolean @default(false)
+  rolePreference String?
+  curriculumPreference String?
+  subjectPreferences String?
+
+  createdAt DateTime @default(now())
+
+  lessons   Lesson[]
+}
