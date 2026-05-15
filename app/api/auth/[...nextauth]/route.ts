@@ -4,7 +4,8 @@ import { prisma } from "@/lib/prisma";
 import bcrypt from "bcrypt";
 
 // ✅ Export authOptions (needed for session access)
-export const authOptions = {
+import { NextAuthOptions } from "next-auth";
+export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",
