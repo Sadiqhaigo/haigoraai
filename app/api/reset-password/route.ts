@@ -1,8 +1,6 @@
 import { prisma } from "@/lib/prisma";
-
-import bcrypt from "bcryptjs";
-
 import { NextResponse } from "next/server";
+import bcrypt from "bcrypt";
 
 export async function POST(
   req: Request
@@ -12,6 +10,21 @@ export async function POST(
       token,
       password,
     } = await req.json();
+
+    if (
+      !token ||
+      !password
+    ) {
+      return NextResponse.json(
+        {
+          message:
+            "Token and password are required.",
+        },
+        {
+          status: 400,
+        }
+      );
+    }
 
     const user =
       await prisma.user.findFirst({
@@ -28,13 +41,15 @@ export async function POST(
       return NextResponse.json(
         {
           message:
-            "Invalid or expired token.",
+            "Invalid or expired reset token.",
         },
-        { status: 400 }
+        {
+          status: 400,
+        }
       );
     }
 
-    const hashed =
+    const hashedPassword =
       await bcrypt.hash(
         password,
         10
@@ -46,7 +61,8 @@ export async function POST(
       },
 
       data: {
-        password: hashed,
+        password:
+          hashedPassword,
 
         resetToken: null,
 
@@ -57,15 +73,21 @@ export async function POST(
 
     return NextResponse.json({
       message:
-        "Password updated successfully.",
+        "Password reset successfully.",
     });
-  } catch {
+
+  } catch (error) {
+
+    console.error(error);
+
     return NextResponse.json(
       {
         message:
           "Something went wrong.",
       },
-      { status: 500 }
+      {
+        status: 500,
+      }
     );
   }
 }

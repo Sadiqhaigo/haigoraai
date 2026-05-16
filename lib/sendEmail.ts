@@ -9,6 +9,7 @@ export async function sendResetEmail(
   resetLink: string
 ) {
   try {
+    console.log("Sending reset email to:", email);
     await resend.emails.send({
       from:
         "HaigoraAI <onboarding@resend.dev>",
