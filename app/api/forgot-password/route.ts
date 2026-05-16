@@ -1,5 +1,7 @@
 import { prisma } from "@/lib/prisma";
 
+import { sendResetEmail } from "@/lib/sendEmail";
+
 import crypto from "crypto";
 
 import { NextResponse } from "next/server";
@@ -47,8 +49,9 @@ export async function POST(
       },
     });
 
-    console.log(
-      `Reset Link: http://localhost:3000/reset-password/${token}`
+    await sendResetEmail(
+      email,
+      resetLink
     );
 
     return NextResponse.json({

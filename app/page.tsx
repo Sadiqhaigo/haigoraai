@@ -102,7 +102,7 @@ export default function Page() {
           </div>
 
           <h1 style={styles.heroTitle}>
-            Generate Complete Curriculum-Aligned Lesson Notes in Seconds
+            Generate Complete Curriculum-Aligned Academic Contents in Seconds
           </h1>
 
           <p style={styles.heroText}>
