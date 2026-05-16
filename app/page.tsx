@@ -358,7 +358,7 @@ export default function Page() {
           </p>
 
           <a
-            href="https://wa.me/2349050318839"
+            href="https://wa.me/2348140246416"
             target="_blank"
             rel="noopener noreferrer"
             style={styles.whatsappBtn}
