@@ -12,7 +12,9 @@ import { exportAcademicDoc } from "@/lib/exportAcademicDoc";
 export default async function LessonDetailPage({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{
+    id: string;
+  }>;
 }) {
   const session = await getServerSession(authOptions);
 
@@ -23,7 +25,13 @@ export default async function LessonDetailPage({
   const { id } = await params;
 
   const lesson = await prisma.lesson.findUnique({
-    where: { id },
+    where: {
+      id,
+    },
+  
+    include: {
+      user: true,
+    },
   });
 
   if (!lesson) {

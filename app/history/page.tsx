@@ -108,7 +108,7 @@ export default async function HistoryPage() {
       <div style={styles.grid}>
         {lessons.map((lesson) => {
           const badge = getBadge(
-            lesson.contentType
+            lesson.contentType || "lesson"
           );
 
           return (

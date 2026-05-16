@@ -1,37 +1,24 @@
 "use client";
 
-export default function ExportButton({ content }: { content: string }) {
-  const handleExport = () => {
-    const blob = new Blob([content], {
-      type: "application/msword",
-    });
+import { exportAcademicDoc } from "@/lib/exportAcademicDoc";
 
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "lesson.doc";
-    a.click();
-  };
+type ExportButtonsProps = {
+  topic: string;
+  content: string;
+};
 
-  return (
-    <button onClick={() =>
-      exportAcademicDoc(
-        lesson.topic,
-        lesson.content
-      )
-    } style={styles.btn}>
-      Download Word
-    </button>
-  );
+export default function ExportButtons() {
+  return null;
 }
 
 const styles: any = {
   btn: {
-    background: "#2563eb", // blue (Word)
-    color: "#fff",
     padding: "8px 14px",
     borderRadius: 8,
     border: "none",
+    background: "#2563eb",
+    color: "#fff",
     cursor: "pointer",
+    fontWeight: 600,
   },
 };
