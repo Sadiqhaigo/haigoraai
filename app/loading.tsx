@@ -23,6 +23,7 @@ export default function Loading() {
               borderTop: "6px solid #2563eb",
               borderRadius: "50%",
               margin: "0 auto 20px",
+              animation: "spin 1s linear infinite",
             }}
           />
   

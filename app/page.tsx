@@ -98,7 +98,7 @@ export default function Page() {
       <section style={styles.hero}>
         <div style={styles.heroLeft}>
           <div style={styles.badge}>
-            Trusted AI Assistant for Teachers & Lecturers
+            Trusted AI Academic Research Assistant for Educators.
           </div>
 
           <h1 style={styles.heroTitle}>
@@ -344,6 +344,31 @@ export default function Page() {
           <h3>HaigoraAI</h3>
 
           <p>AI Curriculum Intelligence for Educators</p>
+        </div>
+
+        <div style={styles.betaSection}>
+          <div style={styles.betaBadge}>
+            🚀 Beta Version
+          </div>
+
+          <p style={styles.feedbackText}>
+            Help us improve HaigoraAI by
+            sharing your feedback and
+            experience as an educator.
+          </p>
+
+          <a
+            href="https://wa.me/2349050318839"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={styles.whatsappBtn}
+          >
+            <span style={styles.whatsappIcon}>
+              💬
+            </span>
+
+            Chat with us on WhatsApp
+          </a>
         </div>
 
         <div>
@@ -782,5 +807,78 @@ const styles: any = {
     padding: 40,
     background: "#0f172a",
     color: "#fff",
+  },
+
+  betaSection: {
+    marginTop: 40,
+  
+    padding: 24,
+  
+    borderRadius: 20,
+  
+    background:
+      "linear-gradient(135deg, #eff6ff 0%, #f8fafc 100%)",
+  
+    border:
+      "1px solid #dbeafe",
+  
+    textAlign: "center",
+  },
+  
+  betaBadge: {
+    display: "inline-block",
+  
+    background: "#2563eb",
+  
+    color: "#fff",
+  
+    padding: "8px 16px",
+  
+    borderRadius: 999,
+  
+    fontWeight: 700,
+  
+    fontSize: 14,
+  
+    marginBottom: 18,
+  },
+  
+  feedbackText: {
+    color: "#475569",
+  
+    fontSize: 16,
+  
+    lineHeight: 1.8,
+  
+    marginBottom: 24,
+  },
+  
+  whatsappBtn: {
+    display: "inline-flex",
+  
+    alignItems: "center",
+  
+    gap: 10,
+  
+    background: "#25D366",
+  
+    color: "#fff",
+  
+    textDecoration: "none",
+  
+    padding: "14px 22px",
+  
+    borderRadius: 14,
+  
+    fontWeight: 700,
+  
+    fontSize: 15,
+  
+    boxShadow:
+      "0 8px 20px rgba(37,211,102,0.25)",
+  },
+  
+  whatsappIcon: {
+    fontSize: 18,
   },
 };

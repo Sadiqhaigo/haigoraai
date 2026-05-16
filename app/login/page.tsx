@@ -338,8 +338,36 @@ export default function LoginPage() {
               }}
             >
               {loading
-                ? "Signing In..."
+                ? 
+
+                <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 10,
+            }}
+          >
+            <div
+              style={{
+                width: 18,
+                height: 18,
+                border:
+                  "2px solid rgba(255,255,255,0.4)",
+                borderTop:
+                  "2px solid #fff",
+                borderRadius: "50%",
+                animation: "spin 1s linear infinite",
+              }}
+            />
+
+            <span>
+              Signing In...
+            </span>
+          </div>
+
                 : "Login"}
+
             </button>
           </div>
 
