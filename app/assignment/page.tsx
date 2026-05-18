@@ -2,7 +2,7 @@ import { getServerSession }
 from "next-auth";
 
 import { authOptions }
-from "../api/auth/[...nextauth]/route";
+from "@/lib/auth";
 
 import { redirect }
 from "next/navigation";

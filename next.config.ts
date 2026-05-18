@@ -1,12 +1,21 @@
-import type {
-  NextConfig,
-} from "next";
+import nextPwa from "next-pwa";
 
-const nextConfig: NextConfig =
-  {
-    allowedDevOrigins: [
-      "192.168.100.180",
-    ],
-  };
+const withPWA = nextPwa({
+  dest: "public",
 
-export default nextConfig;
+  register: true,
+
+  skipWaiting: true,
+
+  disable:
+    process.env.NODE_ENV ===
+    "development",
+});
+
+const nextConfig = {
+  reactStrictMode: true,
+};
+
+export default withPWA(
+  nextConfig
+);

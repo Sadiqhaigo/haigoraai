@@ -1,7 +1,8 @@
 import OpenAI from "openai";
 import { prisma } from "@/lib/prisma";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../auth/[...nextauth]/route";
+import { authOptions }
+from "@/lib/auth";
 import { formatContent } from "@/lib/formatContent";
 import { getCurriculumGuide } from "@/lib/curriculumGuide";
 
